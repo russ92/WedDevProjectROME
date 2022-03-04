@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <header>
+        <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<title>CA3 Browse Locations</title>
+		<style> 
+		</style>
+		<script>
+		</script>
+    </header>
+    <body>
+        <form method=GET action="/">
+            <input type="hidden">
+            <button type="submit">
+              Index
+            </button>
+        </form>
+        <p>
+            <table>
+                <tr th:each="myLocation : ${myLocations}">
+                    <td th:text="${xcoord}"></td>
+                    <td th:text="${ycoord}"></td>
+                    <td th:text="${shortNote}"></td>
+                    <td>
+                        <form action="/view/{id}">
+                            <input type="button" value="view">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </p>
+    </body>
+</html>
