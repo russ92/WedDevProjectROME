@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <header>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>CA3 Add Location</title>
+        <style> 
+        </style>
+        <script>
+        </script>
+    </header>
+    <body>
+        <form method=POST action="/addlocationP">
+            X-Coordinate: <br/><br/> 
+            <input type="number"/ name="xcoord"/> <br/>
+            Y-Coordinate: <br/><br/>
+            <input type="number"/ name="ycoord"/><br/>
+            Note: <br/><br/>
+            <input type="text"/ name="shortNote"/>
+            <br/>
+            <button type="submit" name="submit">Add Location</button>
+        </form>
+        <br/>
+        <form method=GET action="/">
+            <input type="hidden">
+            <button type="submit">
+              Index
+            </button>
+        </form>
+    </body>
+</html>

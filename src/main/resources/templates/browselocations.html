@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+		<title>Browse Locations</title>
+    </head>
+    <body>
+        <table>
+            <tr th:each="id : ${myLocations}">
+                <td th:text="${id.xcoord}"></td>
+                <td th:text="${id.ycoord}"></td>
+                <td th:text="${id.shortNote}"></td>
+                <td>
+                    <form action="/view/{id}">
+                        <input type="button" value="View">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <form method="GET" action="/">
+            <button type="submit" value="Index">Index</button>
+        </form>
+    </body>
+</html>

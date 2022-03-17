@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+	<html lang="en">
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+        <script>
+            $(function() {
+
+            var catalog = [];
+
+            $.getJSON('catalog.json', function(data) {
+                $.each(data.datapoint, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + f.name + "</td>" +
+                    "<td>" + f.price + "</td>" + "</tr>"
+                    $(tblRow).appendTo("#catalogtable tbody");
+              });
+            });
+          });
+        </script>
+    </head>
+    <body> 
+        <!--NAV BAR-->
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#news">placeholder</a></li>
+          <li><a href="checkout.html">CHECKOUT</a></li>
+          <li style="float:right"><a class="active" onclick="document.getElementById('logIn').style.display='block'">Log-In</a></li>
+          <li style="float:right"><a class="active" href="signup.html">Sign-Up</a></li>
+        </ul>
+
+        <!--LOGIN-->
+        <div id="logIn" class="modal">
+  
+          <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+              <span onclick="document.getElementById('logIn').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <img src="pix/LogIn.jpg" alt="Avatar" class="avatar">
+            </div>
+        
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+        
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+                
+              <button type="submit">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('logIn').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>
+        </div>
+
+        <!--LOGIN SCRIPT-->
+        <script>
+          // Get the modal
+          var modal = document.getElementById('logIn');
+          
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          }
+        </script>
+
+
+        <!--Catalog Table-->
+        <div >
+          <table id= "catalogtable" border="2">
+            <thead>
+                      <th>Product Name</th>
+                      <th>Price per unit</th>
+                  </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+          </div>
+    </body>
+</html>
