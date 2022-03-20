@@ -41,6 +41,7 @@ public class USerAccountController {
         data.setEmail(email);
         userAccounts.put(count, data);
         count++;
+
     }
 
 
@@ -64,8 +65,11 @@ public class USerAccountController {
             if (currentAccount.getUsername() == username && currentAccount.getPassword() == password) {
                 HttpSession session = request.getSession();
             }
+            else if  (currentAccount.getPassword() != password || currentAccount.getUsername() != username) {
+                response.sendRedirect("/forgot");
+            }
             else if (accountsIterator.hasNext() == false) {
-                userAccount.setUsername(username);
+                response.sendRedirect("/home");
             }
         }
     }

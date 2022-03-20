@@ -4,6 +4,13 @@ body {
   font-family: sans-serif;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 /*NAV BAR CSS*/
 ul {
     list-style-type: none;
